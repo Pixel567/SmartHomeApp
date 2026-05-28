@@ -4,6 +4,7 @@ Smart home system built on Raspberry Pi 5 with sensor monitoring and remote devi
 
 **Authors:** 
 Eryk Tamm (Server, Database, Frontend)
+
 Kacper Radomski (Device, Frontend)
 
 ---
