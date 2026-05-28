@@ -1,0 +1,98 @@
+.right {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+    padding: 30px 200px;
+}
+
+.right__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+    width: 100%;
+    height: 240px;
+    background-color: #435570;
+    border-radius: 7px;
+    box-shadow: 8px 8px 8px #12171f;
+}
+
+.right__top-data-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.right__bottom {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 20px;
+}
+
+.right__bottom-left {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+}
+
+.right__lock-code {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 20px;
+}
+
+.right__bottom-right {
+    flex: 1;
+    display: flex;
+}
+
+#historyChart {
+    height: 100%;
+}
+
+@media screen and (max-width: 1400px) {
+    .right {
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .right {
+        padding: 30px 100px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .right {
+        padding: 30px 50px;
+    }
+    .right__top {
+        padding: 10px 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .right {
+        padding: 10px 10px;
+    }
+
+    .right__lock-code,
+    .right__top,
+    .right__bottom {
+        flex-direction: column;
+    }
+
+    .right__bottom-right {
+        min-height: 450px;
+    }
+
+}

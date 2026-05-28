@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/init.css}">
+</head>
+<body>
+    <div class="main">
+        <div class="left">
+            <div class="left__top">
+                <img id="logo" src="/img/smarthome.png">
+                <button id="test-device">Test device</button>
+            </div>
+            <div class="left__bottom">
+                <p id="user_username"></p>
+                <a href="/logout" class="button">Sign out</a>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="right__top">
+                <div class="right__top-data-item">
+                    <img src="/img/temperature.png">
+                    <div>
+                        <span id='temperature'></span>
+                        <span>°C</span>
+                    </div>
+                </div>
+                <div class="right__top-data-item">
+                    <img src="/img/moisture.png">
+                    <div>
+                        <span id='humidity'></span>
+                        <span>%</span>
+                    </div>
+                </div>
+                <div class="right__top-data-item">
+                    <img src="/img/motion.png">
+                    <p id='motion'></p>
+                </div>
+            </div>
+
+            <div class="right__bottom">
+                <div class="right__bottom-left">
+                    <div class="light">
+                        <img src="/img/lightbulb.png">
+                        <input id="lightSlider" type="range" min="0" max="100" value="0">
+                    </div>
+                    <div class="right__lock-code">
+                        <div class="lock">
+                            <img id="lockPicture" src="/img/lock_opened.png">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="lockSwitch">
+                            </div>
+                        </div>
+
+                        <div class="code">
+                            <a>Set door code</a>
+                            <input id="code-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="right__bottom-right">
+                    <div id="historyChart" style="width:100%; height:100%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="module" th:src=@{/js/init.js}></script>
+<script th:inline="javascript">
+    const labels = /*[[${times}]]*/ [];
+    const temperatures = /*[[${temperatures}]]*/ [];
+    const humidities = /*[[${humidities}]]*/ [];
+
+    const chartDiv = document.getElementById("historyChart");
+    const chart = echarts.init(chartDiv);
+
+    const options = {
+        backgroundColor: "#273140",
+        tooltip: {
+            trigger: "axis"
+        },
+
+        legend: {
+            data: ["Temperature (°C)", "Humidity (%)"],
+            top: 10,
+            textStyle: { color: "#d0d7e3", fontSize: 14 }
+        },
+
+        grid: {
+            left: "60px",
+            right: "60px",
+            top: "60px",
+            bottom: "80px"
+        },
+
+        xAxis: {
+            type: "category",
+            data: labels,
+            axisLabel: { show: false },
+            axisLine: { lineStyle: { color: "#445" } },
+
+            axisPointer: {
+                label: { show: false }
+            }
+        },
+
+        yAxis: [
+            {
+                type: "value",
+                name: "°C",
+                position: "left",
+                axisLabel: { color: "#ff9999" },
+                axisLine: { lineStyle: { color: "#ff5555" } },
+                splitLine: { lineStyle: { color: "rgba(255,255,255,0.1)" } }
+            },
+            {
+                type: "value",
+                name: "%",
+                position: "right",
+                axisLabel: { color: "#88c7ff" },
+                axisLine: { lineStyle: { color: "#4aa3ff" } },
+                splitLine: { show: false }
+            }
+        ],
+
+        dataZoom: [
+            {
+                type: "slider",
+                start: 70,
+                end: 100,
+                showDetail: false,
+                showDataShadow: true,
+                brushSelect: false
+            },
+            {
+                type: "inside",
+                showDetail: false,
+            }
+        ],
+
+        series: [
+            {
+                name: "Temperature (°C)",
+                type: "line",
+                yAxisIndex: 0,
+                data: temperatures,
+                smooth: true,
+                symbol: "none",
+                lineStyle: { color: "#ff5555", width: 3 },
+                itemStyle: { color: "#ff5555" }
+            },
+            {
+                name: "Humidity (%)",
+                type: "line",
+                yAxisIndex: 1,
+                data: humidities,
+                smooth: true,
+                symbol: "none",
+                lineStyle: { color: "#4aa3ff", width: 3 },
+                itemStyle: { color: "#4aa3ff" }
+            }
+        ]
+    };
+
+    chart.setOption(options);
+    window.addEventListener("resize", () => chart.resize());
+</script>
+</html>

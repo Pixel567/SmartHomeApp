@@ -1,0 +1,30 @@
+#logo {
+    width: 100%;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    width: 200px;
+    background-color: #435570;
+}
+
+.left__top,
+.left__bottom {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    padding: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .left {
+        flex-direction: column;
+        width: 100%;
+    }
+}

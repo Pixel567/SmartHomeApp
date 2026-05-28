@@ -1,0 +1,38 @@
+.light {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 7px;
+    height: 170px;
+    padding: 20px;
+    background-color: #435570;
+    box-shadow: 8px 8px 8px #12171f;
+}
+
+#lightSlider {
+    -webkit-appearance: none;
+    appearance: none;
+    background: linear-gradient(to right, #2f3c4f var(--value), #c2d3ed var(--value));
+    width: 75%;
+    height: 8px;
+    border-radius: 4px;
+    outline: none;
+}
+
+#lightSlider::-webkit-slider-runnable-track {
+    background: transparent;
+    height: 8px;
+    border-radius: 4px;
+}
+
+#lightSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    background: #273140 !important;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    margin-top: -7px;
+}

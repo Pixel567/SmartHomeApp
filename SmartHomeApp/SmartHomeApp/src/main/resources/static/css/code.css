@@ -1,0 +1,18 @@
+.code {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding: 30px 10px;
+    border-radius: 7px;
+    background-color: #435570;
+    box-shadow: 8px 8px 8px #12171f;
+}
+
+#code-input {
+    border-radius: 7px;
+    outline: 0;
+    border: 0;
+}

@@ -1,0 +1,30 @@
+html,
+body {
+    font-family: arial, sans-serif;
+    font-size: 30px;
+    background-color: #273140;
+    color: #c2d3ed;
+    overflow-x: none;
+    margin: 0;
+}
+
+button,
+.button {
+    text-decoration: none;
+    text-align: center;
+    background-color: #273140;
+    border: 7px solid #273140;
+    color: #c2d3ed;
+}
+
+input {
+    width: 75%;
+}
+
+img {
+    width: 70px;
+}
+
+p {
+    margin: 0;
+}
