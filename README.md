@@ -1,4 +1,4 @@
-# SmartHome Platform
+# SmartHome System
 
 Smart home system built on Raspberry Pi 5 with sensor monitoring and remote device control via a web dashboard.
 
