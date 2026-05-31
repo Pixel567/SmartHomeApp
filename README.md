@@ -1,5 +1,7 @@
 # SmartHome System
 
+The complete, detailed project documentation and architecture overview are available in [DOCUMENTATION.pdf]
+
 Smart home system built on Raspberry Pi 5 with sensor monitoring and remote device control via a web dashboard.
 
 **Authors:** 
