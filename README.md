@@ -1,4 +1,4 @@
-The complete, detailed project documentation and architecture overview are available in [DOCUMENTATION.pdf](DOCUMENTATION.pdf).
+The complete, detailed project documentation, screenshots and architecture overview are available in [DOCUMENTATION.pdf](DOCUMENTATION.pdf).
 
 # Smart home system - quick overview:
 
